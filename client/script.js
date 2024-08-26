@@ -1,6 +1,14 @@
-const socket = new WebSocket("ws://localhost:8080");
+const socket = new WebSocket(getWebSocketURL());
 let gameState;
 let moveHistory = [];
+
+function getWebSocketURL() {
+  let protocol = window.location.protocol === "https:" ? "wss" : "ws";
+  let hostname = window.location.hostname;
+  let port = window.location.port ? `:${window.location.port}` : "";
+
+  return `${protocol}://${hostname}${port}/`;
+}
 
 //websocket message for handling responses
 socket.onmessage = function (event) {
