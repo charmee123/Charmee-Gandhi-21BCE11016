@@ -33,3 +33,8 @@ If you'd like to contribute to the project, feel free to fork the repository and
 
 ## License
 This project is under the MIT License.
+
+## Images for reference
+![image](https://github.com/user-attachments/assets/831a3b36-1a1f-4793-81aa-a6bd0a9daada)
+![image](https://github.com/user-attachments/assets/221328ce-5d6a-4e6e-abe6-72b8eb323e44)
+
