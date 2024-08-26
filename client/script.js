@@ -29,7 +29,7 @@ socket.onclose = function () {
 
 //rendering Board
 function renderBoard() {
-  console.log("Rendering board with state:", gameState.board);
+  // console.log("Rendering board with state:", gameState.board);
   const gameBoard = document.getElementById("gameBoard");
   gameBoard.innerHTML = ""; // Clear previous board
 
@@ -195,13 +195,39 @@ function updateSelectedMove(character, move) {
 //updating and storing move history
 function updateMoveHistory() {
   const moveHistoryDiv = document.getElementById("moveHistory");
-  moveHistoryDiv.innerHTML = "<h5>Move History</h5><ul>";
-  moveHistory.forEach((move) => {
-    moveHistoryDiv.innerHTML += `<li>${move}</li>`;
-  });
-  moveHistoryDiv.innerHTML += "</ul>";
-}
+  moveHistoryDiv.innerHTML = "<h5>Move History</h5>";
 
+  // Create a row to hold the columns
+  let row = document.createElement("div");
+  row.className = "row";
+  moveHistoryDiv.appendChild(row);
+
+  // Create the first column
+  let col = document.createElement("div");
+  col.className = "col";
+  let ol = document.createElement("ol");
+  col.appendChild(ol);
+  row.appendChild(col);
+
+  moveHistory.forEach((move, index) => {
+    if (index > 0 && index % 7 === 0) {
+      // If 7 moves are already in the column, start a new column
+      col = document.createElement("div");
+      col.className = "col";
+      ol = document.createElement("ol");
+      ol.start = index + 1;
+      col.appendChild(ol);
+      row.appendChild(col);
+    }
+
+    // Add the move to the ordered list
+    const li = document.createElement("li");
+    li.innerHTML = move.includes("Captured")
+      ? `<span style="color:red;">${move}</span>`
+      : move;
+    ol.appendChild(li);
+  });
+}
 //showing toast mesasaging
 function showWinnerToast(winner) {
   const toastBody = document.getElementById("toastBody");
