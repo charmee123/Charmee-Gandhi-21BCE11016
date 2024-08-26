@@ -1,0 +1,96 @@
+body {
+    background-color: rgb(20, 20, 20);
+    color: #FFF;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 81px);
+    grid-template-rows: repeat(5, 81px);
+    gap: 6px;
+    justify-content: center;
+    color: #FFF;
+}
+
+.title {
+    color: #5fe1d2;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* for grid and players  */
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: rgb(35, 33, 33);
+    border: 1px solid #ced4da;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.player-A {
+    background-color: rgb(75, 57, 87);
+
+}
+
+.player-A:hover {
+    background-color: #e169bb;
+    color: black;
+}
+
+.player-B {
+    background-color: rgb(75, 72, 77);
+
+}
+
+.player-B:hover,
+#moveOptions button:hover {
+    background-color: #5fe1d2;
+    color: black;
+}
+
+#selectedMove {
+    font-size: 1em;
+}
+
+#moveHistory {
+    margin-top: 20px;
+}
+
+#moveHistory ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#moveHistory li {
+    margin: 5px 0;
+}
+
+#moveOptions button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Highlight the selected cell */
+.selected-cell {
+    outline: 3px solid yellow;
+
+}
+
+
+/* game rules */
+
+.gameRules {
+    background-color: rgb(21, 20, 20);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #FFF;
+}
